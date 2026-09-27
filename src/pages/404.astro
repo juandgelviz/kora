@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const ATAJOS = [
+	{ href: '/#derechos', label: 'Derechos' },
+	{ href: '/#historias', label: 'Historias' },
+	{ href: '/#orientacion', label: 'Orientación' },
+	{ href: '/#recursos', label: 'Recursos' },
+	{ href: '/#contacto', label: 'Contacto' },
+];
+---
+
+<Layout noindex menu={false}>
+	<main class="relative flex min-h-screen items-center overflow-hidden bg-rojo-100 px-6 py-16 sm:px-10">
+		<p
+			aria-hidden="true"
+			class="font-display pointer-events-none absolute inset-x-0 top-1/2 -translate-y-1/2 text-center leading-none text-rojo-200 select-none"
+			style="font-size: clamp(12rem, 32vw, 26rem);"
+		>
+			404
+		</p>
+
+		<div class="relative mx-auto w-full max-w-xl text-center">
+			<a
+				href="/"
+				class="inline-flex items-center gap-3"
+				aria-label="Kora — inicio"
+			>
+				<img
+					src="/logo.png"
+					alt=""
+					width={40}
+					height={40}
+					class="h-10 w-10 rounded-full object-cover"
+				/>
+				<span class="font-display text-2xl leading-none tracking-tight text-rojo-700">
+					Kora
+				</span>
+			</a>
+			<p class="mt-10 text-xs font-semibold tracking-[0.22em] text-rojo-600 uppercase">
+				Error 404
+			</p>
+			<h1 class="mt-3 text-4xl text-rojo-700 sm:text-5xl">
+				Esta ruta no lleva a ningún derecho
+			</h1>
+			<p class="mx-auto mt-4 max-w-md text-base leading-relaxed text-rojo-700/70">
+				La página que buscas no existe o cambió de lugar.
+			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+				<a
+					href="/"
+					class="rounded-full bg-rojo-600 px-7 py-3 text-sm font-semibold text-white transition-[transform,background-color] duration-150 ease-out hover:bg-rojo-500 active:scale-[0.97]"
+				>
+					Volver al inicio
+				</a>
+				<a
+					href="/#contacto"
+					class="rounded-full border border-rojo-700/25 px-7 py-3 text-sm font-semibold text-rojo-700 transition-[transform,background-color,border-color] duration-150 ease-out hover:border-rojo-700/60 hover:bg-white/60 active:scale-[0.97]"
+				>
+					Pedir orientación
+				</a>
+			</div>
+			<nav
+				aria-label="Atajos"
+				class="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-sm font-medium"
+			>
+				{
+					ATAJOS.map((item) => (
+						<a
+							href={item.href}
+							class="text-rojo-700/60 transition-colors duration-150 ease-out hover:text-rojo-700"
+						>
+							{item.label}
+						</a>
+					))
+				}
+			</nav>
+		</div>
+	</main>
+</Layout>

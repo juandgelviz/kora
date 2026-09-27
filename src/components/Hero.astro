@@ -1,0 +1,183 @@
+---
+import AeroShards from './AeroShards';
+
+const ACCESOS = [
+	{
+		href: '#derechos',
+		label: 'Conoce tus derechos',
+		desc: 'Salario, jornada, despido y más',
+		icon: 'M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z M14 2v4a2 2 0 0 0 2 2h4 M10 9H8 M16 13H8 M16 17H8',
+	},
+	{
+		href: '#contacto',
+		label: 'Cuenta tu caso',
+		desc: 'Te orientamos paso a paso',
+		icon: 'M7.9 20A9 9 0 1 0 4 16.1L2 22Z M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3 M12 17h.01',
+	},
+	{
+		href: '#recursos',
+		label: 'Guías y recursos',
+		desc: 'Rutas oficiales y ayuda',
+		icon: 'M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z',
+	},
+];
+---
+
+<section id="inicio" class="relative h-full w-full overflow-hidden bg-rojo-100">
+	<div class="absolute inset-0 h-full w-full" aria-hidden="true">
+		<AeroShards
+			client:visible
+			backgroundColor="#E6CFCF"
+			shardColor="#820E0E"
+			accentColor="#A85656"
+			placement="full"
+			flow="stream"
+			material="pearl"
+			detail="balanced"
+			interaction="repel"
+			density={1.5}
+		/>
+	</div>
+
+	<div class="absolute inset-0 z-10 overflow-y-auto">
+		<div
+			class="mx-auto grid min-h-full w-full max-w-6xl items-center gap-12 px-6 py-28 sm:px-10 lg:grid-cols-[1.05fr_0.95fr]"
+		>
+			<div>
+				<p class="hero-anim text-sm font-semibold tracking-[0.2em] text-rojo-600 uppercase">
+					Red de apoyo · Derechos laborales en Colombia
+				</p>
+				<h1
+					class="hero-anim mt-5 max-w-3xl text-5xl leading-[1.05] font-normal text-balance text-rojo-700 sm:text-6xl lg:text-7xl"
+				>
+					Dignidad que el trabajo valora
+				</h1>
+				<p class="hero-anim mt-6 max-w-xl text-lg leading-relaxed text-pretty text-rojo-700/75">
+					KORA informa, orienta y acompaña a las personas trabajadoras: conoce tus
+					derechos, comparte tu experiencia y encuentra rutas claras para actuar.
+				</p>
+				<div class="hero-anim mt-10 flex flex-wrap items-center gap-4">
+					<a
+						href="#derechos"
+						class="rounded-full bg-rojo-600 px-7 py-3 text-sm font-semibold text-white transition-[transform,background-color] duration-150 ease-out hover:bg-rojo-500 active:scale-[0.97]"
+					>
+						Conoce tus derechos
+					</a>
+					<a
+						href="#orientacion"
+						class="rounded-full border border-rojo-700/25 px-7 py-3 text-sm font-semibold text-rojo-700 transition-[transform,background-color,border-color] duration-150 ease-out hover:border-rojo-700/60 hover:bg-white/40 active:scale-[0.97]"
+					>
+						Pide orientación
+					</a>
+				</div>
+			</div>
+
+			<div class="hero-anim flex flex-col gap-4">
+				<a
+					href="tel:018000112518"
+					class="group flex items-center gap-4 rounded-2xl border border-rojo-700/10 bg-white/70 p-5 backdrop-blur transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-16px_rgba(46,5,5,0.35)]"
+				>
+					<span
+						class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-rojo-600 text-white"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="22"
+							height="22"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							aria-hidden="true"
+						>
+							<path
+								d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+							/>
+						</svg>
+					</span>
+					<span>
+						<span class="block text-xs font-semibold tracking-[0.18em] text-rojo-700/60 uppercase">
+							¿Necesitas ayuda ya?
+						</span>
+						<span class="font-display mt-1 block text-2xl leading-none text-rojo-700">
+							01-8000-112518
+						</span>
+						<span class="mt-1 block text-sm text-rojo-700/60">
+							Línea gratuita · Ministerio del Trabajo
+						</span>
+					</span>
+				</a>
+
+				<nav
+					aria-label="Accesos rápidos"
+					class="flex flex-col gap-1 rounded-2xl border border-rojo-700/10 bg-white/70 p-3 backdrop-blur"
+				>
+					{
+						ACCESOS.map((item) => (
+							<a
+								href={item.href}
+								class="group flex items-center gap-4 rounded-xl p-3 transition-[background-color] duration-150 ease-out hover:bg-rojo-100"
+							>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="22"
+									height="22"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="shrink-0 text-rojo-600"
+									aria-hidden="true"
+								>
+									<path d={item.icon} />
+								</svg>
+								<span class="flex-1">
+									<span class="block text-[15px] font-semibold text-rojo-700">
+										{item.label}
+									</span>
+									<span class="block text-sm text-rojo-700/60">{item.desc}</span>
+								</span>
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									width="18"
+									height="18"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									class="shrink-0 text-rojo-700/40 transition-transform duration-200 ease-out group-hover:translate-x-1"
+									aria-hidden="true"
+								>
+									<path d="M5 12h14" />
+									<path d="m12 5 7 7-7 7" />
+								</svg>
+							</a>
+						))
+					}
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	import { gsap } from 'gsap';
+
+	const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if (!reduce) {
+		gsap.from('.hero-anim', {
+			y: 24,
+			opacity: 0,
+			duration: 0.7,
+			stagger: 0.08,
+			ease: 'expo.out',
+			delay: 0.05,
+		});
+	}
+</script>

@@ -1,0 +1,80 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const actualizada = 'septiembre de 2026';
+---
+
+<Layout menu={false}>
+	<main class="bg-rojo-100 px-6 py-16 sm:px-10">
+		<article class="mx-auto w-full max-w-3xl">
+			<a
+				href="/"
+				class="inline-flex items-center gap-2 rounded-full border border-rojo-700/15 bg-white px-4 py-2.5 text-sm font-semibold text-rojo-700 transition-[background-color] hover:bg-white/70"
+			>
+				← Volver al inicio
+			</a>
+			<p class="mt-10 text-xs font-semibold tracking-[0.22em] text-rojo-600 uppercase">
+				Legal
+			</p>
+			<h1 class="mt-3 text-4xl text-rojo-700 sm:text-5xl">
+				Tratamiento de datos personales
+			</h1>
+			<p class="mt-3 text-sm text-rojo-700/60">Última actualización: {actualizada}</p>
+
+			<div class="mt-8 flex flex-col gap-8 text-[15px] leading-relaxed text-rojo-700/80">
+				<section>
+					<h2 class="text-2xl text-rojo-700">1. Compromiso</h2>
+					<p class="mt-3">
+						KORA protege la información personal conforme a la Ley 1581 de 2012
+						y el Decreto 1377 de 2013 de Colombia. Solo recogemos los datos
+						estrictamente necesarios para responder tu consulta.
+					</p>
+				</section>
+				<section>
+					<h2 class="text-2xl text-rojo-700">2. Qué datos recogemos</h2>
+					<p class="mt-3">
+						A través del formulario: nombre, correo electrónico, tema de la
+						consulta y la descripción de tu situación. No te pedimos documentos
+						de identidad, ni datos financieros, ni datos sensibles: por favor no
+						los incluyas en tus mensajes.
+					</p>
+				</section>
+				<section>
+					<h2 class="text-2xl text-rojo-700">3. Para qué los usamos</h2>
+					<p class="mt-3">
+						Única y exclusivamente para leer tu caso, preparar la orientación y
+						contactarte con la respuesta. Nunca publicamos consultas ni datos
+						personales sin tu autorización expresa.
+					</p>
+				</section>
+				<section>
+					<h2 class="text-2xl text-rojo-700">4. Dónde se guardan</h2>
+					<p class="mt-3">
+						Según la configuración del sitio, las consultas se guardan en el
+						navegador del equipo del proyecto o en una base de datos privada con
+						acceso restringido al equipo de orientación. En ningún caso se
+						venden, arriendan ni comparten con terceros con fines comerciales.
+					</p>
+				</section>
+				<section>
+					<h2 class="text-2xl text-rojo-700">5. Tus derechos</h2>
+					<p class="mt-3">
+						Tienes derecho a conocer, actualizar, rectificar y suprimir tus
+						datos, así como a revocar la autorización (derechos de habeas
+						data). Para ejercerlos, escríbenos desde el formulario de contacto
+						indicando tu solicitud y la atenderemos en los términos de ley.
+					</p>
+				</section>
+				<section>
+					<h2 class="text-2xl text-rojo-700">6. Conservación y seguridad</h2>
+					<p class="mt-3">
+						Conservamos las consultas solo durante el tiempo necesario para la
+						orientación y aplicamos medidas razonables de seguridad y acceso
+						restringido. Ningún sistema es infalible: evita compartir
+						información altamente sensible por este medio.
+					</p>
+				</section>
+			</div>
+		</article>
+	</main>
+</Layout>

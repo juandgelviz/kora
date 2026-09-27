@@ -1,0 +1,218 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+/* ============================================================
+   KORA — Design tokens
+   ------------------------------------------------------------
+   1. COLORES PERSONALIZADOS
+      Agrega tus rampas dentro de `@theme` con el formato:
+        --color-<nombre>-<paso>: <valor>;
+      Tailwind genera automáticamente las utilidades:
+        bg-rojo-500, text-rojo-100, border-rojo-700, …
+      (los valores de "rojo" son de ejemplo: reemplázalos
+      con tus colores de marca)
+   2. FUENTES
+      Los `@font-face` van en este archivo y la familia se
+      registra en `@theme` como `--font-*` para usarla con
+      la utilidad `font-*` (ej. `font-display`).
+   ============================================================ */
+
+@theme {
+	/* ——— Rojo · escala 100–900 (valores de ejemplo) ——— */
+	--color-rojo-100: #E6CFCF;
+	--color-rojo-200: #CD9F9F;
+	--color-rojo-300: #A85656;
+	--color-rojo-400: #820E0E;
+	--color-rojo-500: #620B0B;
+	--color-rojo-600: #480808;
+	--color-rojo-700: #2E0505;
+
+	/* ——— Tipografía: Molen solo titulares, Inter para texto ——— */
+	--font-display: "Molen Surplus", ui-sans-serif, system-ui, sans-serif;
+	--font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+		sans-serif;
+
+	/* ——— Curvas de animación (tokens de motion) ——— */
+	--ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+	--ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* ——— Molen Surplus (display) · public/font/molen-surplus.otf ——— */
+@font-face {
+	font-family: "Molen Surplus";
+	src: url("/font/molen-surplus.otf") format("opentype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: var(--font-sans);
+		background-color: var(--color-rojo-100);
+		color: var(--color-rojo-700);
+	}
+
+	/* Titulares en Molen Surplus; tracking negativo al crecer */
+	h1,
+	h2,
+	h3 {
+		font-family: var(--font-display);
+		font-weight: 400;
+		letter-spacing: -0.01em;
+		text-wrap: balance;
+	}
+
+	::selection {
+		background-color: var(--color-rojo-500);
+		color: #fff;
+	}
+}
+
+@layer components {
+	/* Enlace del menú desktop: subrayado que crece desde la izquierda */
+	.nav-link {
+		position: relative;
+		transition: color 160ms ease;
+	}
+	.nav-link::after {
+		content: "";
+		position: absolute;
+		left: 0;
+		bottom: -4px;
+		height: 1px;
+		width: 100%;
+		background: currentColor;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 220ms var(--ease-out);
+	}
+	@media (hover: hover) and (pointer: fine) {
+		.nav-link:hover::after {
+			transform: scaleX(1);
+		}
+	}
+	.nav-link:focus-visible {
+		outline: 2px solid var(--color-rojo-400);
+		outline-offset: 4px;
+		border-radius: 2px;
+	}
+
+	/* Overlay del menú móvil: entra y sale por el mismo camino */
+	.mobile-menu {
+		transition:
+			opacity 300ms var(--ease-out),
+			visibility 300ms;
+	}
+	.mobile-menu[data-open="false"] {
+		opacity: 0;
+		visibility: hidden;
+		pointer-events: none;
+	}
+	.mobile-menu-item {
+		transition:
+			opacity 280ms var(--ease-out),
+			transform 280ms var(--ease-out);
+	}
+	.mobile-menu[data-open="false"] .mobile-menu-item {
+		opacity: 0;
+		transform: translateY(14px);
+	}
+}
+
+/* Motion reducido: fundidos suaves, sin desplazamientos ni stagger */
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+	.mobile-menu,
+	.mobile-menu-item,
+	.nav-link::after {
+		transition-duration: 120ms;
+	}
+	.mobile-menu-item {
+		transition-delay: 0ms;
+	}
+	.mobile-menu[data-open="false"] .mobile-menu-item {
+		transform: none;
+	}
+}
+
+/* Transparencia reducida: superficies sólidas, sin blur */
+@media (prefers-reduced-transparency: reduce) {
+	.mobile-menu {
+		background-color: var(--color-rojo-100);
+		backdrop-filter: none;
+	}
+}
+
+/* ——— Reveal por scroll: visible por defecto, mejora progresiva ———
+   Sin JS (o si algo falla) el contenido siempre se ve. Solo cuando
+   <html> tiene .js el estado inicial se oculta hasta entrar en vista. */
+.rv {
+	opacity: 1;
+}
+.js .rv {
+	opacity: 0;
+	transform: translateY(var(--rv-y, 24px));
+}
+.js .rv.in {
+	opacity: 1;
+	transform: none;
+	transition:
+		opacity 0.4s var(--ease-out),
+		transform 0.4s var(--ease-out);
+	transition-delay: var(--rv-delay, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+	.js .rv {
+		transform: none;
+	}
+	.js .rv.in {
+		transition-duration: 0.15s;
+		transition-delay: 0ms;
+	}
+}
+
+/* ——— Micro-transiciones globales ——— */
+@layer components {
+	/* Enlaces de footer: micro-desplazamiento al pasar */
+	.foot-link {
+		display: inline-block;
+		transition:
+			transform 180ms var(--ease-out),
+			color 150ms ease;
+	}
+	@media (hover: hover) and (pointer: fine) {
+		.foot-link:hover {
+			transform: translateX(3px);
+		}
+	}
+
+	/* Spinner de envío (CSS puro, sin dependencias) */
+	.spinner {
+		width: 16px;
+		height: 16px;
+		border-radius: 9999px;
+		border: 2px solid currentColor;
+		border-top-color: transparent;
+		animation: spin 0.7s linear infinite;
+	}
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+}
+
+@layer base {
+	:focus-visible {
+		outline: 2px solid var(--color-rojo-400);
+		outline-offset: 3px;
+		border-radius: 4px;
+	}
+}

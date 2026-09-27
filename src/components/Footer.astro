@@ -1,0 +1,107 @@
+---
+const year = new Date().getFullYear();
+const secciones = [
+	{ label: 'Derechos laborales', href: '#derechos' },
+	{ label: 'Historias', href: '#historias' },
+	{ label: 'Orientación', href: '#orientacion' },
+	{ label: 'Preguntas', href: '#contacto' },
+	{ label: 'Recursos', href: '#recursos' },
+];
+const oficial = [
+	{ label: 'Ministerio del Trabajo', href: 'https://www.mintrabajo.gov.co/' },
+	{
+		label: 'Servicio Público de Empleo',
+		href: 'https://www.mintrabajo.gov.co/atencion-al-ciudadano/tramites-y-servicios/servicio-publico-del-empleo',
+	},
+];
+const legal = [
+	{ label: 'Términos y condiciones', href: '/terminos' },
+	{ label: 'Tratamiento de datos', href: '/privacidad' },
+];
+---
+
+<footer class="bg-rojo-700 text-white">
+	<div class="mx-auto grid w-full max-w-6xl gap-10 px-6 py-16 sm:px-10 md:grid-cols-4 lg:grid-cols-5">
+		<div class="md:col-span-2">
+			<a href="#inicio" class="flex items-center gap-3" aria-label="Kora — inicio">
+				<img
+					src="/logo.png"
+					alt=""
+					width={50}
+					height={50}
+					loading="lazy"
+					class="h-20 w-20 rounded-full object-cover"
+				/>
+				<span class="font-display text-4xl leading-none tracking-tight text-white">
+					Kora
+				</span>
+			</a>
+			<p class="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
+				Red confiable de apoyo para las personas trabajadoras: información clara
+				sobre derechos laborales, orientación frente a vulneraciones y recursos
+				para actuar de manera informada.
+			</p>
+		</div>
+		<nav aria-label="Secciones">
+			<p class="text-xs font-semibold tracking-[0.2em] text-rojo-200 uppercase">
+				Secciones
+			</p>
+			<ul class="mt-4 space-y-2.5 text-sm">
+				{
+					secciones.map((item) => (
+						<li>
+							<a href={item.href} class="foot-link text-white/75 hover:text-white">
+								{item.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+		<nav aria-label="Enlaces oficiales">
+			<p class="text-xs font-semibold tracking-[0.2em] text-rojo-200 uppercase">
+				Oficial
+			</p>
+			<ul class="mt-4 space-y-2.5 text-sm">
+				{
+					oficial.map((item) => (
+						<li>
+							<a
+								href={item.href}
+								target="_blank"
+								rel="noreferrer"
+								class="foot-link text-white/75 hover:text-white"
+							>
+								{item.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+		<nav aria-label="Legal">
+			<p class="text-xs font-semibold tracking-[0.2em] text-rojo-200 uppercase">
+				Legal
+			</p>
+			<ul class="mt-4 space-y-2.5 text-sm">
+				{
+					legal.map((item) => (
+						<li>
+							<a href={item.href} class="foot-link text-white/75 hover:text-white">
+								{item.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
+	<div class="border-t border-white/10">
+		<div
+			class="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-6 text-xs leading-relaxed text-white/60 sm:px-10 md:flex-row md:items-center md:justify-between"
+		>
+			<p>© {year} KORA · Dignidad que el trabajo valora</p>
+			<p>Orientación general y didáctica: no reemplaza la asesoría profesional.</p>
+		</div>
+	</div>
+</footer>

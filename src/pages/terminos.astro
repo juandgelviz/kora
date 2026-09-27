@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const actualizada = 'septiembre de 2026';
+---
+
+<Layout menu={false}>
+	<main class="bg-rojo-100 px-6 py-16 sm:px-10">
+		<article class="mx-auto w-full max-w-3xl">
+			<a
+				href="/"
+				class="inline-flex items-center gap-2 rounded-full border border-rojo-700/15 bg-white px-4 py-2.5 text-sm font-semibold text-rojo-700 transition-[background-color] hover:bg-white/70"
+			>
+				← Volver al inicio
+			</a>
+			<p class="mt-10 text-xs font-semibold tracking-[0.22em] text-rojo-600 uppercase">
+				Legal
+			</p>
+			<h1 class="mt-3 text-4xl text-rojo-700 sm:text-5xl">Términos y condiciones</h1>
+			<p class="mt-3 text-sm text-rojo-700/60">Última actualización: {actualizada}</p>
+
+			<div class="mt-8 flex flex-col gap-8 text-[15px] leading-relaxed text-rojo-700/80">
+				<section>
+					<h2 class="text-2xl text-rojo-700">1. Qué es KORA</h2>
+					<p class="mt-3">
+						KORA es una página web informativa y de orientación general sobre
+						derechos laborales. Su contenido es educativo y didáctico: no
+						constituye asesoría jurídica, representación legal ni crea una
+						relación abogado-cliente con ninguna persona usuaria.
+					</p>
+				</section>
+				<section>
+					<h2 class="text-2xl text-rojo-700">2. Uso aceptado</h2>
+					<p class="mt-3">
+						Puedes leer, compartir y usar la información con fines personales e
+						informativos. No está permitido usar el sitio para actividades
+						ilícitas, publicar datos personales de terceros sin su
+						consentimiento, ni intentar vulnerar su seguridad o disponibilidad.
+					</p>
+				</section>
+				<section>
+					<h2 class="text-2xl text-rojo-700">3. Espacios de participación</h2>
+					<p class="mt-3">
+						Las historias y experiencias compartidas deben respetar las reglas de
+						convivencia: lenguaje respetuoso, sin datos personales propios ni de
+						terceros y sin contenido difamatorio. El equipo puede moderar o
+						retirar contenidos que incumplan estas reglas.
+					</p>
+				</section>
+				<section>
+					<h2 class="text-2xl text-rojo-700">4. Consultas y orientación</h2>
+					<p class="mt-3">
+						Las respuestas del equipo son orientación general basada en la
+						información que nos compartes. Cada caso es particular: ante
+						decisiones importantes (demandas, tutelas, conciliaciones) consulta
+						siempre a un profesional del derecho.
+					</p>
+				</section>
+				<section>
+					<h2 class="text-2xl text-rojo-700">5. Enlaces externos</h2>
+					<p class="mt-3">
+						Enlazamos fuentes oficiales y recursos útiles. No controlamos esos
+						sitios ni respondemos por su contenido, disponibilidad o políticas
+						de privacidad.
+					</p>
+				</section>
+				<section>
+					<h2 class="text-2xl text-rojo-700">6. Cambios</h2>
+					<p class="mt-3">
+						Podemos actualizar estos términos en cualquier momento. La versión
+						vigente será siempre la publicada en esta página, con su fecha de
+						actualización.
+					</p>
+				</section>
+			</div>
+		</article>
+	</main>
+</Layout>

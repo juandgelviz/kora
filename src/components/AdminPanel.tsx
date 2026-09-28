@@ -423,7 +423,7 @@ export default function AdminPanel() {
 					<span className="hidden text-right sm:block">
 						<span className="block text-sm font-semibold text-rojo-700">{session.nombre}</span>
 						<span className="mt-0.5 flex items-center justify-end gap-1 text-xs text-rojo-700/60">
-							{esSuper ? 'Superadministrador' : 'Administradora'} · @{session.usuario}
+							{esSuper ? 'Superadministrador' : 'Administradora'} · {session.usuario}
 						</span>
 					</span>
 					<span className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-rojo-600 text-sm font-bold text-white">

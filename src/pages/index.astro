@@ -1,5 +1,7 @@
 ---
 import Hero from '../components/Hero.astro';
+import GraficaEmpleoKora from '../components/GraficaEmpleoKora';
+import Cuestionario from '../components/Cuestionario';
 import Derechos from '../components/Derechos';
 import Historias from '../components/Historias';
 import Orientacion from '../components/Orientacion';
@@ -16,7 +18,42 @@ import Layout from '../layouts/Layout.astro';
 	<Historias client:load />
 	<Orientacion client:load />
 	<Preguntas client:load />
-	<Formulario client:load />
+	
+	
+
+	<!-- Cuestionario interactivo (casi final) -->
+	<Cuestionario client:load />
+
+	<!-- Gráfica DANE: datos que respaldan el cuestionario -->
+	<section
+		id="informacion"
+		class="scroll-mt-20 mx-auto w-full max-w-6xl px-6 py-24 sm:px-10 lg:py-32"
+	>
+		<h2 class="font-display text-3xl text-rojo-700 sm:text-4xl">
+			Información · Septiembre 2026
+		</h2>
+		<p class="mt-4 max-w-3xl text-rojo-700/75">
+			Comparativa de la Tasa Global de Participación (TGP), la Tasa de
+			Ocupación (TO) y la Tasa de Desocupación (TD) del total nacional.
+		</p>
+		<div class="mt-14">
+			<GraficaEmpleoKora client:visible height={450} />
+		</div>
+		<p class="mt-10 text-sm text-rojo-700/60">
+			Fuente:
+			<a
+				href="https://www.dane.gov.co/index.php/estadisticas-por-tema/mercado-laboral/empleo-y-desempleo"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="font-semibold text-rojo-600 underline-offset-4 transition-colors hover:text-rojo-500 hover:underline"
+			>
+				DANE — Gran Encuesta Integrada de Hogares (GEIH)
+			</a>
+			· Total nacional, septiembre de 2025 y 2026.
+		</p>
+	</section>
 	<Recursos client:load />
+	<Formulario client:load />
 	<Footer />
+
 </Layout>

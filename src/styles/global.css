@@ -27,8 +27,8 @@
 	--color-rojo-600: #480808;
 	--color-rojo-700: #2E0505;
 
-	/* ——— Tipografía: Molen solo titulares, Inter para texto ——— */
-	--font-display: "Molen Surplus", ui-sans-serif, system-ui, sans-serif;
+	/* ——— Tipografía: RetroFunky para titulares, Inter para texto ——— */
+	--font-display: "RetroFunky", ui-sans-serif, system-ui, sans-serif;
 	--font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
 		sans-serif;
 
@@ -37,14 +37,15 @@
 	--ease-drawer: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
-/* ——— Molen Surplus (display) · public/font/molen-surplus.otf ——— */
 @font-face {
-	font-family: "Molen Surplus";
-	src: url("/font/molen-surplus.otf") format("opentype");
+	font-family: "RetroFunky";
+	src: url("/font/RetroFunky-Regular.otf") format("opentype");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
+
+/* ——— RetroFunky (display) · public/font/RetroFunky-Regular.otf ——— */
 
 @layer base {
 	html {
@@ -57,7 +58,7 @@
 		color: var(--color-rojo-700);
 	}
 
-	/* Titulares en Molen Surplus; tracking negativo al crecer */
+	/* Titulares en RetroFunky; tracking negativo al crecer */
 	h1,
 	h2,
 	h3 {
@@ -101,7 +102,6 @@
 		outline-offset: 4px;
 		border-radius: 2px;
 	}
-
 	/* Overlay del menú móvil: entra y sale por el mismo camino */
 	.mobile-menu {
 		transition:
